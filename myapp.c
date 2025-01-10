@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -82,11 +81,11 @@ Nod *balanceTree(Nod *nodCurent)
     // - altfel verifica dacă e necesară o rotație dreapta stanga => returneaza rezultatul
 
     return nodCurent; // returneaza nodCurent
-  
 }
 
 Nod *insert(Nod *nodCurent, int cheie)
 {
+
     if (nodCurent == NULL)
     {
         Nod *n = (Nod *)malloc(sizeof(Nod));
@@ -114,7 +113,7 @@ Nod *insert(Nod *nodCurent, int cheie)
 
 Nod *getPred(Nod *n)
 {
-    if (n == NULL) 
+    if (n == NULL)
         return NULL;
 
     while (n->dr != NULL)
@@ -162,8 +161,8 @@ Nod *delete(Nod *nodCurent, int cheie)
 void preorder(Nod *nodCurent)
 {
 
-    if(nodCurent==NULL)
-    return;
+    if (nodCurent == NULL)
+        return;
 
     printf("%d", nodCurent->cheie);
     preorder(nodCurent->st);
@@ -172,52 +171,52 @@ void preorder(Nod *nodCurent)
 
 void inorder(Nod *nodCurent)
 {
-   if (nodCurent == NULL)
+    if (nodCurent == NULL)
         return;
 
-    inorder(nodCurent->st);
-    printf("%c %d", nodCurent->cheie, nodCurent->balance);
-    inorder(nodCurent->dr);
+    inorder(nodCurent->st);                                // parcurge subarb st
+    printf("%d %d", nodCurent->cheie, nodCurent->balance); // nod curent
+    inorder(nodCurent->dr);                                // parcuge subsrb dr
 }
 
 void postorder(Nod *nodCurent)
 {
-
-}
-
-void level(Nod *root){
-
-}
-void printare(Nod *);
-
-int main()
-{
-    Nod *r = NULL;
-    int v[] = {1, 2, 10, 5, 4, 3};
-    for (int i = 0; i < 6; i++)
-    {
-        r = insert(r, v[i]);
-        printare(r);
-    }
-    printf("----delete----\n");
-    for (int i = 0; i < 6; i++)
-    {
-        r = delete (r, v[i]);
-        printare(r);
-    }
-    return 0;
-}
-
-/*void inorder(Nod *nodCurent)
-{
     if (nodCurent == NULL)
         return;
 
-    inorder(nodCurent->st);
-    printf("%c %d", nodCurent->cheie, nodCurent->balance);
-    inorder(nodCurent->dr);
+    postorder(nodCurent->st);       // parcurge arb st
+    postorder(nodCurent->dr);       // parcurge arb dr
+    printf("%d", nodCurent->cheie); // viziteaza nodul
 }
-*/
+
+void level(Nod *root)
+{
+    int h = height(root);
+    for (int i = 1; i <= h; i++)
+    {
+        printarelevel(root, i);
+        printf("\n");
+    }
+}
+
+void printarelevel(Nod *nodCurent, int level)
+{
+    if (nodCurent == NULL)
+        return;
+    if (level == 1)
+        printf("%d", nodCurent->cheie);
+    else if (level > 1)
+    {
+        printarelevel(nodCurent->st, level - 1);
+        printarelevel(nodCurent->dr, level - 1);
+    }
+}
+
+void printare(Nod *nod)
+{
+    _printare("", nod, 0);
+    printf("--------------\n");
+}
 
 void _printare(char *prefix, Nod *node, int isLeft)
 {
@@ -237,8 +236,39 @@ void _printare(char *prefix, Nod *node, int isLeft)
     _printare(aux, node->dr, 0);
 }
 
-void printare(Nod *nod)
+int main()
 {
-    _printare("", nod, 0);
-    printf("--------------\n");
+    Nod *r = NULL;
+    int v[] = {1, 2, 10, 5, 4, 3};
+    printf("-----INSERARE-----\n");
+    for (int i = 0; i < 6; i++)
+    {
+        r = insert(r, v[i]);
+        printf("Dupa inserarea %d:\n", v[i]);
+        printare(r);
+    }
+    printf("--Traversare in pre-ordine--:\n");
+    preorder(r);
+    printf("\n");
+
+    printf("--Traversarea in inordine:\n");
+    inorder(r);
+    printf("\n");
+
+    printf("--Traversarea in postordine:\n");
+    postorder(r);
+    printf("\n");
+
+    printf("--Traversarea pe nivel:\n");
+    inorder(r);
+    printf("\n");
+
+    printf("----STERGEREA----\n");
+    for (int i = 0; i < 6; i++)
+    {
+        r = delete (r, v[i]);
+        printf("Dupa stergere %d:\n", v[i]);
+        printare(r);
+    }
+    return 0;
 }
