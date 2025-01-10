@@ -1,0 +1,11 @@
+# Ignoră directoarele AppData și alte fișiere de sistem
+**/AppData/
+**/Local/
+**/Temporary Internet Files/
+**/Content.IE5/
+**/INetCache/
+**/ElevatedDiagnostics/
+
+# Ignoră fișierele temporare ale sistemului Windows
+Thumbs.db
+Desktop.ini
