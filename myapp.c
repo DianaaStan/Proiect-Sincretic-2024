@@ -188,16 +188,6 @@ void postorder(Nod *nodCurent)
     printf("%d", nodCurent->cheie); // viziteaza nodul
 }
 
-void level(Nod *root)
-{
-    int h = height(root);
-    for (int i = 1; i <= h; i++)
-    {
-        printarelevel(root, i);
-        printf("\n");
-    }
-}
-
 void printarelevel(Nod *nodCurent, int level)
 {
     if (nodCurent == NULL)
@@ -209,12 +199,6 @@ void printarelevel(Nod *nodCurent, int level)
         printarelevel(nodCurent->st, level - 1);
         printarelevel(nodCurent->dr, level - 1);
     }
-}
-
-void printare(Nod *nod)
-{
-    _printare("", nod, 0);
-    printf("--------------\n");
 }
 
 void _printare(char *prefix, Nod *node, int isLeft)
@@ -233,6 +217,23 @@ void _printare(char *prefix, Nod *node, int isLeft)
     sprintf(aux, "%s%s\0", prefix, (isLeft ? "|   " : "    "));
     _printare(aux, node->st, 1);
     _printare(aux, node->dr, 0);
+}
+
+void printare(Nod *nod)
+{
+    _printare("", nod, 0);
+    printf("--------------\n");
+}
+
+
+void level(Nod *r)
+{
+    int h = height(r);
+    for (int i = 1; i <= h; i++)
+    {
+        printarelevel(r, i);
+        printf("\n");
+    }
 }
 
 int main()
