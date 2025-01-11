@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -240,8 +239,9 @@ int main()
 {
     Nod *r = NULL;
     int v[] = {1, 2, 10, 5, 4, 3};
+    int n=sizeof(v)/sizeof(v[0]);
     printf("-----INSERARE-----\n");
-    for (int i = 0; i < 6; i++)
+    for (int i = 0; i < n; i++)
     {
         r = insert(r, v[i]);
         printf("Dupa inserarea %d:\n", v[i]);
