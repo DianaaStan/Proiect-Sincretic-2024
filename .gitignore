@@ -6,6 +6,16 @@
 **/INetCache/
 **/ElevatedDiagnostics/
 
-# Ignoră fișierele temporare ale sistemului Windows
+# Ignora fișierele temporare ale sistemului Windows
 Thumbs.db
 Desktop.ini
+
+# Ignora fisierele si directoarele generate de compilator
+*.exe
+*.out
+*.o
+/build/
+
+# Fisiere log sau temporare
+*.log
+*.tmp
