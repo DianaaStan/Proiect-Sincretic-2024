@@ -26,3 +26,11 @@ Pentru a compila si rula proiectul, urmeaza pasii:
 
  3. Ruleaza aplicatia: 
  - ./myapp
+
+## Cum sa rulezi aplicatia folosind Docker
+
+1. Cloneaza repository-ul(daca nu ai facut-o deja):
+**git clone:** <https://github.com/DianaaStan/Proiect-Sincretic-2024.git>
+
+2. Construieste imaginea Docker: 
+```docker build -t dianaastan/my-gcc-app:latest
