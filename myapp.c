@@ -185,7 +185,7 @@ void postorder(Nod *nodCurent)
 
     postorder(nodCurent->st);       // parcurge arb st
     postorder(nodCurent->dr);       // parcurge arb dr
-    printf("%d", nodCurent->cheie); // viziteaza nodul
+    printf("%d\n", nodCurent->cheie); // viziteaza nodul
 }
 
 void printarelevel(Nod *nodCurent, int level)
