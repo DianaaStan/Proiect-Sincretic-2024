@@ -2,8 +2,8 @@ FROM gcc:latest
 
 WORKDIR /usr/src/myapp
 
-COPY myapp.ex .
+COPY . .
 
 RUN gcc -o myapp myapp.c 
 
-CMD ["./myapp.exe"]
+CMD ["./myapp"]
