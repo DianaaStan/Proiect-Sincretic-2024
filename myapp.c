@@ -183,8 +183,8 @@ void postorder(Nod *nodCurent)
     if (nodCurent == NULL)
         return;
 
-    postorder(nodCurent->st);       // parcurge arb st
-    postorder(nodCurent->dr);       // parcurge arb dr
+    postorder(nodCurent->st);         // parcurge arb st
+    postorder(nodCurent->dr);         // parcurge arb dr
     printf("%d\n", nodCurent->cheie); // viziteaza nodul
 }
 
@@ -193,7 +193,9 @@ void printarelevel(Nod *nodCurent, int level)
     if (nodCurent == NULL)
         return;
     if (level == 1)
-        printf("%d", nodCurent->cheie);
+    {
+        printf("%d ", nodCurent->cheie);
+    }
     else if (level > 1)
     {
         printarelevel(nodCurent->st, level - 1);
@@ -225,12 +227,12 @@ void printare(Nod *nod)
     printf("--------------\n");
 }
 
-
 void level(Nod *r)
 {
     int h = height(r);
     for (int i = 1; i <= h; i++)
     {
+        printf("Nivel %d: ", i);
         printarelevel(r, i);
         printf("\n");
     }
@@ -240,7 +242,7 @@ int main()
 {
     Nod *r = NULL;
     int v[] = {1, 2, 10, 5, 4, 3};
-    int n=sizeof(v)/sizeof(v[0]);
+    int n = sizeof(v) / sizeof(v[0]);
     printf("-----INSERARE-----\n");
     for (int i = 0; i < n; i++)
     {
@@ -261,7 +263,7 @@ int main()
     printf("\n");
 
     printf("--Traversarea pe nivel:\n");
-    inorder(r);
+    level(r);
     printf("\n");
 
     printf("----STERGEREA----\n");
