@@ -1,5 +1,8 @@
 # Proiect-Sincretic-2024
 
+## Autor
+**Stan Diana**
+
 ## Notite
 ## Cerinta Proiectului ales:
 
@@ -15,7 +18,7 @@ aleatorii. Să se afișeze elementele în urmă traversării arborelui în:
 
 
 ## Descriere
-Acesta este un proiect de implementeaza un arbore AVL in limbajul **C**.
+Acesta este un proiect care implementeaza un arbore AVL in limbajul **C**.
 
 
 ---
@@ -32,6 +35,8 @@ Acesta este un proiect de implementeaza un arbore AVL in limbajul **C**.
 
 
 ## Modalitate de rulare 
+
+### Rulare locala
 Pentru a compila si rula proiectul, urmeaza pasii:
 
 1. Descarca sau cloneaza repository-ul:
@@ -45,7 +50,9 @@ Pentru a compila si rula proiectul, urmeaza pasii:
  ```
 
  3. Ruleaza aplicatia: 
-`./myapp`
+```bash 
+./myapp
+```
 
 
 ---
@@ -58,14 +65,25 @@ Aceasta aplicatie este disponibila ca imagine Docker pe Docker Hub. Puteti acces
 
  ## Pasi de utilizare:
 
-1. Descara imaginea:
+1. Cloneaza repository-ul
 - Utilizati comanda:
 ```bash
-docker pull dianaastan/my-gcc-app
+git clone https://github.com/dianaastan/my-gcc-app.git
+```
+2. Acceseaza directorul proiectului:
+```bash 
+cd my-gcc-app
 ```
 
-2. Ruleaza containerul Docker:
-`docker run -it --rm dianaastan/my-gcc-app:latest`
+3. Construieste imaginea Docker:
+```bash 
+docker build -t dianaastan/my-gcc-app:latest
+```
+
+4. Ruleaza containerul Docker:
+```bash 
+docker run -it --rm dianaastan/my-gcc-app:latest
+```
 
 ---
 
@@ -75,7 +93,7 @@ docker pull dianaastan/my-gcc-app
  - Captura de ecran a aplicatiei rulate cu comanda `docker run dianaastan/my-gcc-app:latest` in terminal : 
  ![Captura de ecran](images/Screenshot%202025-01-12%20143644.png)
 
- - Captura de ecran a aplicatiei rulate pe Docker : 
+ - Captura de ecran cu aplicatia rulata intr-un  container Docker : 
  ![Captura de ecran](images/Screenshot2.png)
 
 
